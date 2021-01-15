@@ -29,8 +29,18 @@ const expect = (receivedValue) => {
   };
 };
 
+const fn = (implementation) => {
+  const mock = (...args) => {
+    return implementation(...args);
+  };
+  return mock;
+};
+
 module.exports = {
   describe,
   it,
   expect,
+  best: {
+    fn,
+  },
 };
