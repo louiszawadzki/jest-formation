@@ -3,7 +3,9 @@ class Bowling {
 
   roll(pins) {}
 
-  getFinalScore() {}
+  getFinalScore() {
+    return 0;
+  }
 }
 
 module.exports = Bowling;
