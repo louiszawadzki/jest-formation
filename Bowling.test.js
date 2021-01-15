@@ -1,5 +1,5 @@
 const Bowling = require("./bowling");
-const { describe, it } = require("./best");
+const { describe, it, expect } = require("./best");
 
 describe("Bowling", () => {
   it("handles a very boring game", () => {
@@ -8,8 +8,6 @@ describe("Bowling", () => {
       game.roll(0);
     }
 
-    if (game.getFinalScore() !== 0) {
-      throw new Error("not good");
-    }
+    expect(game.getFinalScore()).toBe(0);
   });
 });

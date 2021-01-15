@@ -13,11 +13,24 @@ const it = (title, callback) => {
   try {
     callback();
   } catch (error) {
-    throw new Error(`❌ ${title}: \n\nreceived: ${error.message}`);
+    throw new Error(`❌ ${title}: \n\n${error.message}`);
   }
+};
+
+const expect = (receivedValue) => {
+  return {
+    toBe: (expectedValue) => {
+      if (expectedValue !== receivedValue) {
+        throw new Error(
+          `Expected ${expectedValue} but received ${receivedValue}`
+        );
+      }
+    },
+  };
 };
 
 module.exports = {
   describe,
   it,
+  expect,
 };
