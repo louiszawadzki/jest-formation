@@ -11,6 +11,7 @@ describe("Bowling", () => {
     }
 
     expect(game.getFinalScore()).toBe(0);
+    expect(utils.getRandomRoll.mock.calls.length).toBe(20);
   });
 
   it("handles a game with no spare no strike", () => {

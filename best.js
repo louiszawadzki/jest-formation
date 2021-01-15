@@ -31,8 +31,10 @@ const expect = (receivedValue) => {
 
 const fn = (implementation) => {
   const mock = (...args) => {
+    mock.mock.calls.push(args);
     return implementation(...args);
   };
+  mock.mock = { calls: [] };
   return mock;
 };
 
