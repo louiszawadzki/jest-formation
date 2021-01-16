@@ -3,6 +3,9 @@ const getRandomRoll = (max = 10) => {
   return Math.round(Math.random() * max);
 };
 
+// some call to an API here
+throw new Error("Could not find API :((");
+
 module.exports = {
   getRandomRoll,
 };
