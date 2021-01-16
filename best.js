@@ -38,11 +38,22 @@ const fn = (implementation) => {
   return mock;
 };
 
+const mock = (path, moduleMock) => {
+  const modulePath = require.resolve(path);
+  require.cache[modulePath] = {
+    id: modulePath,
+    filename: modulePath,
+    loaded: true,
+    exports: moduleMock,
+  };
+};
+
 module.exports = {
   describe,
   it,
   expect,
   best: {
     fn,
+    mock,
   },
 };

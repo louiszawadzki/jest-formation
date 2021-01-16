@@ -1,14 +1,8 @@
 const { describe, it, expect, best } = require("./best");
 
-const utilsPath = require.resolve("./getRandomRoll");
-require.cache[utilsPath] = {
-  id: utilsPath,
-  filename: utilsPath,
-  loaded: true,
-  exports: {
-    getRandomRoll: best.fn(),
-  },
-};
+best.mock("./getRandomRoll", {
+  getRandomRoll: best.fn(),
+});
 
 const Bowling = require("./bowling");
 const utils = require("./getRandomRoll");
